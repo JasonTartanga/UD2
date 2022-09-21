@@ -21,7 +21,7 @@ public class Ejercicio9 {
 		if(estadoCivil == 'C' && salario*0.92 /12 < 1000) {
 			System.out.println("Introduce el nº de hijos");
 			int hijos = sc.nextInt();
-				if(hijos == 1) {
+				if(hijos <= 1) {
 					System.out.println("Sr. " + nombre + " BECA CONCEDIDA");					
 				}
 				else {
@@ -36,7 +36,7 @@ public class Ejercicio9 {
 		if(estadoCivil == 'S' && salario*0.87 /12 < 1000) {
 			System.out.println("Introduce el nº de hijos");
 			int hijos = sc.nextInt();
-				if(hijos == 1) {
+				if(hijos <= 1) {
 					System.out.println("Sr. " + nombre + " BECA CONCEDIDA");					
 				}
 				else {
@@ -51,7 +51,7 @@ public class Ejercicio9 {
 		if(estadoCivil == 'V' && salario*0.9 /12 < 1000) {
 			System.out.println("Introduce el nº de hijos");
 			int hijos = sc.nextInt();
-				if(hijos == 1) {
+				if(hijos <= 1) {
 					System.out.println("Sr. " + nombre + " BECA CONCEDIDA");					
 				}
 				else {
@@ -66,7 +66,7 @@ public class Ejercicio9 {
 		if(estadoCivil == 'O' && salario*0.89 /12 < 1000) {
 			System.out.println("Introduce el nº de hijos");
 			int hijos = sc.nextInt();
-				if(hijos == 1) {
+				if(hijos <= 1) {
 					System.out.println("Sr. " + nombre + " BECA CONCEDIDA");					
 				}
 				else {

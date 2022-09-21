@@ -18,7 +18,7 @@ public class Ejercicio9 {
 		int salario = sc.nextInt();
 	
 		//If Casado
-		if(estadoCivil == 'C' && salario*1.08 /12 < 1000) {
+		if(estadoCivil == 'C' && salario*0.92 /12 < 1000) {
 			System.out.println("Introduce el nº de hijos");
 			int hijos = sc.nextInt();
 				if(hijos == 1) {
@@ -33,7 +33,7 @@ public class Ejercicio9 {
 				}
 		
 		//IF SOLTERO
-		if(estadoCivil == 'S' && salario*1.13 /12 < 1000) {
+		if(estadoCivil == 'S' && salario*0.87 /12 < 1000) {
 			System.out.println("Introduce el nº de hijos");
 			int hijos = sc.nextInt();
 				if(hijos == 1) {
@@ -48,7 +48,7 @@ public class Ejercicio9 {
 		}
 
 		//IF VIUDO
-		if(estadoCivil == 'V' && salario*1.1 /12 < 1000) {
+		if(estadoCivil == 'V' && salario*0.9 /12 < 1000) {
 			System.out.println("Introduce el nº de hijos");
 			int hijos = sc.nextInt();
 				if(hijos == 1) {
@@ -63,7 +63,7 @@ public class Ejercicio9 {
 		}
 
 		//IF OTROS
-		if(estadoCivil == 'V' && salario*1.1 /12 < 1000) {
+		if(estadoCivil == 'O' && salario*0.89 /12 < 1000) {
 			System.out.println("Introduce el nº de hijos");
 			int hijos = sc.nextInt();
 				if(hijos == 1) {

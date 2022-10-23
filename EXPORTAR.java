@@ -2,7 +2,9 @@ package Array;
 
 import java.util.Scanner;
 
-public class Ejercicio13 {
+import javax.swing.JOptionPane;
+
+public class EXPORTAR {
 
 	public static void main(String[] args) {
 
@@ -18,22 +20,20 @@ public class Ejercicio13 {
 		String continuar;
 		int mejorAlumno = 0;
 		String Alumno;
+		Boolean hayAlumno = false;
 		Boolean notaValida = false;
 
 // Preguntamos nombres y notas
 		for (int i = 0; i < Nombre.length; i++) {
-			System.out.printf("Introduce el %sº nombre: ", (i + 1));
-			Nombre[i] = sc.next();
+			Nombre[i] = JOptionPane.showInputDialog("Introduce el " + (i + 1) + " nombre");
 
-			System.out.printf("Introduce la nota de %s : ", Nombre[i]);
 			do {
-				Nota1 = sc.nextInt();
-
+				Nota1 = Integer.parseInt(JOptionPane.showInputDialog("Introduce la nota de " + Nombre[i]));
 				notaValida = true;
 				if (Nota1 >= 0 && Nota1 <= 10) {
 					Nota[i] = Nota1;
 				} else {
-					System.out.print("Introduce una nota valida: ");
+					JOptionPane.showMessageDialog(null, "Introduce una nota valida: ");
 					notaValida = false;
 				}
 			} while (!notaValida);
@@ -41,32 +41,24 @@ public class Ejercicio13 {
 		do {
 
 // Menu
-			System.out.println();
-			System.out.println("1. Visualizar nombres y sus notas");
-			System.out.println("2. Visualizar sólo el nombre de la persona con mayor nota");
-			System.out.println("3. Visualizar la media de las notas");
-			System.out.println("4. Visualizar el número de veces que aparece una nota");
-			System.out.println("5. Mostrar notras de un alumno especifico");
-			System.out.println("6. Introducir nuevas notas a quien queramos");
-			System.out.println("7. Clasificar de mayor a menor");
-			System.out.println("8. Salir");
+			opc = Integer.parseInt(JOptionPane.showInputDialog("1. Visualizar nombres y sus notas\n"
+					+ "2. Visualizar sólo el nombre de la persona con mayor nota\n"
+					+ "3. Visualizar la media de las notas\n"
+					+ "4. Visualizar el número de veces que aparece una nota\n"
+					+ "5. Mostrar notras de un alumno especifico\n" + "6. Introducir nuevas notas a quien queramos\n"
+					+ "7. Clasificar de mayor a menor\n" + "8. Salir\n"));
 
-			opc = sc.nextInt();
 			switch (opc) {
 
 // Mostramos la nota de cada estudiante
 			case 1:
-				System.out.println();
-
 				for (int i = 0; i < Nombre.length; i++) {
-					System.out.printf("La nota de %s es: %s\n", Nombre[i], Nota[i]);
+					JOptionPane.showMessageDialog(null, "La nota de " + Nombre[i] + " es: " + Nota[i]);
 				}
 				break;
 
 // Mostramos unicamente la nota mas alta
 			case 2:
-				System.out.println();
-
 				int Mayor = 0;
 
 				for (int i = 0; i < Nombre.length; i++) {
@@ -75,71 +67,62 @@ public class Ejercicio13 {
 						mejorAlumno = i;
 					}
 				}
-				System.out.printf("El que tiene la nota mas alta es %s : %s\n", Nombre[mejorAlumno], Mayor);
+				JOptionPane.showMessageDialog(null,
+						("El que tiene la nota mas alta es " + Nombre[mejorAlumno] + " : " + Mayor));
 				break;
 
 // Mostramo la media
 			case 3:
-				System.out.println();
-
 				int Media = 0;
 
 				for (int i = 0; i < Nombre.length; i++) {
 					Media += Nota[i];
 				}
-				System.out.println("La nota media es: " + (float) Media / Nombre.length);
+				JOptionPane.showMessageDialog(null, ("La nota media es: " + (float) Media / Nombre.length));
 				break;
 
 //Mostrar cantidad de veces que aparece X numero
 			case 4:
-				System.out.println();
-
 				int contador = 0;
 
-				System.out.print("Introduce un numero: ");
-				Num = sc.nextInt();
+				Num = Integer.parseInt(JOptionPane.showInputDialog("Introduce un numero"));
 				for (int i = 0; i < Nombre.length; i++) {
 					if (Nota[i] == Num) {
 						contador++;
 					}
 				}
-				System.out.printf("El numero %s ha aparecido %s veces\n", Num, contador);
+				JOptionPane.showMessageDialog(null, ("El numero " + Num + " ha aparecido " + contador + " veces"));
 				break;
 
 //Darnos la nota de un alumno
 			case 5:
-				System.out.println();
-				Boolean hayAlumno = false;
 
-				System.out.print("Introduce el nombre de un alumno: ");
-				Alumno = sc.next();
+				Alumno = JOptionPane.showInputDialog("Introduce el nombre de un alumno: ");
 				for (int i = 0; i < Nombre.length; i++) {
 					if (Nombre[i].contains(Alumno)) {
-						System.out.println(Alumno + " ha sacado un " + Nota[i]);
+						JOptionPane.showMessageDialog(null, (Alumno + " ha sacado un " + Nota[i]));
 						hayAlumno = true;
 					}
 				}
 				if (!hayAlumno) {
-					System.out.println("No hay ningun alumno con ese nombre");
+					JOptionPane.showMessageDialog(null, ("No hay ningun alumno con ese nombre"));
 				}
 				break;
 
 //Cambiar nota
 			case 6:
-				System.out.println();
 
 				for (int i = 0; i < Nombre.length; i++) {
-					System.out.printf("Quieres cambiar el nombre de %s (S,N)", Nombre[i]);
-					continuar = sc.next().toUpperCase();
+					continuar = JOptionPane.showInputDialog("Quieres cambiar la nota de " + Nombre[i] + " (S,N)");
 					if (continuar.charAt(0) == 'S') {
 						do {
-							System.out.println("Introduce la nueva nota de " + Nombre[i]);
-							Nota1 = sc.nextInt();
+							Nota1 = Integer
+									.parseInt(JOptionPane.showInputDialog("Introduce la nueva nota de " + Nombre[i]));
 							notaValida = true;
 							if (Nota1 >= 0 && Nota1 <= 10) {
 								Nota[i] = Nota1;
 							} else {
-								System.out.println("Introduce una nota valida");
+								JOptionPane.showMessageDialog(null, ("Introduce una nota valida"));
 								;
 								notaValida = false;
 							}
@@ -150,8 +133,6 @@ public class Ejercicio13 {
 
 //Ordenar de mayor a menor
 			case 7:
-				System.out.println();
-
 				int intercambio;
 				String intercambio1;
 
@@ -171,7 +152,7 @@ public class Ejercicio13 {
 							Nombre[j] = intercambio1;
 						}
 					}
-					System.out.println((i + 1) + "º " + Nombre[i] + " : " + Nota[i]);
+					JOptionPane.showMessageDialog(null, (i + 1) + "º " + Nombre[i] + " : " + Nota[i]);
 				}
 				break;
 
@@ -179,11 +160,11 @@ public class Ejercicio13 {
 				break;
 
 			default:
-				System.out.println("Introduce una opcion valida");
+				JOptionPane.showMessageDialog(null, "Introduce una opcion valida");
 				break;
 			}
 		} while (opc != 8);
-		System.out.println("Has decidido no contiuar");
+		JOptionPane.showMessageDialog(null, "Has decidido no contiuar");
 		sc.close();
 	}
 
